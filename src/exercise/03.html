@@ -8,6 +8,9 @@
   <h2>Extra Credit 1</h2>
   <div id="extra-credit-1"></div>
 
+  <h2>Extra Credit 2</h2>
+  <div id="extra-credit-2"></div>
+
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
@@ -28,6 +31,13 @@
     ReactDOM.render(
       <div className={className}>{children}</div>,
       document.getElementById('extra-credit-1'),
+    )
+
+    // extra Credit 2
+    const props = {children, className}
+    ReactDOM.render(
+      <div {...props} />,
+      document.getElementById('extra-credit-2'),
     )
   </script>
 </body>
