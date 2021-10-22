@@ -11,6 +11,9 @@
   <h2>Extra Credit 2</h2>
   <div id="extra-credit-2"></div>
 
+  <h2>Extra Credit 3</h2>
+  <div id="extra-credit-3"></div>
+
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
@@ -48,6 +51,34 @@
         <Message>Goodbye World</Message>
       </div>,
       document.getElementById('extra-credit-2'),
+    )
+
+    // extra credit 3
+    function MessageWithValidation({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    function isString(props, propName, componentName) {
+      if (typeof props[propName] !== 'string') {
+        return new Error(`${propName} must be a string`)
+      }
+    }
+
+    MessageWithValidation.propTypes = {
+      subject: isString,
+      greeting: isString,
+    }
+
+    ReactDOM.render(
+      <div className="container">
+        <MessageWithValidation subject="World" greeting="Hello" />
+        <MessageWithValidation subject="World" greeting="Goodbye" />
+      </div>,
+      document.getElementById('extra-credit-3'),
     )
   </script>
 </body>
