@@ -2,7 +2,10 @@
 <!-- http://localhost:3000/isolated/exercise/02.html -->
 
 <body>
+  <h1>Excercise</h1>
   <div id="root"></div>
+  <h1>Extra Credit</h1>
+  <div id="extra-credit"></div>
 
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
@@ -16,5 +19,15 @@
     const reactElement = React.createElement(elementType, elementProps)
 
     ReactDOM.render(reactElement, rootElement)
+
+    const extraCreditRootElement = document.getElementById('extra-credit')
+    const extraElement = React.createElement('div', {
+      class: 'container',
+      children: [
+        React.createElement('span', {children: 'Hello'}),
+        React.createElement('span', {children: 'World'}),
+      ],
+    })
+    ReactDOM.render(extraElement, extraCreditRootElement)
   </script>
 </body>
