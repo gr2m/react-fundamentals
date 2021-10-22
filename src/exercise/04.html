@@ -4,6 +4,10 @@
 <body>
   <h1>Creating Custom Components</h1>
   <div id="root"></div>
+
+  <h2>Extra Credit 1</h2>
+  <div id="extra-credit-1"></div>
+
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
@@ -19,7 +23,15 @@
       </div>
     )
 
-    // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
+
+    // extra credit 1
+    ReactDOM.render(
+      <div className="container">
+        {React.createElement(message, {children: 'Hello World'})}{' '}
+        {React.createElement(message, {children: 'Goodbye World'})}
+      </div>,
+      document.getElementById('extra-credit-1'),
+    )
   </script>
 </body>
