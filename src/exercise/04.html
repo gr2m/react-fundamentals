@@ -14,9 +14,17 @@
   <h2>Extra Credit 3</h2>
   <div id="extra-credit-3"></div>
 
+  <h2>Extra Credit 4</h2>
+  <div id="extra-credit-4"></div>
+
+  <h2>Extra Credit 5</h2>
+  <div id="extra-credit-5"></div>
+
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
   <script type="text/babel">
     function message(props) {
       return <div className="message" {...props} />
@@ -79,6 +87,38 @@
         <MessageWithValidation subject="World" greeting="Goodbye" />
       </div>,
       document.getElementById('extra-credit-3'),
+    )
+
+    // extra credit 4
+    function MessageWithValidationPackage({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    // https://github.com/facebook/prop-types#readme
+    MessageWithValidationPackage.propTypes = {
+      subject: PropTypes.string.required,
+      greeting: PropTypes.string.required,
+    }
+
+    ReactDOM.render(
+      <div className="container">
+        <MessageWithValidation subject="World" greeting="Hello" />
+        <MessageWithValidation subject="World" greeting="Goodbye" />
+      </div>,
+      document.getElementById('extra-credit-4'),
+    )
+
+    // extra credit 5
+    ReactDOM.render(
+      <>
+        <MessageWithValidation subject="World" greeting="Hello" />
+        <MessageWithValidation subject="World" greeting="Goodbye" />
+      </>,
+      document.getElementById('extra-credit-5'),
     )
   </script>
 </body>
