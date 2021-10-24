@@ -40,9 +40,38 @@ function Excercise() {
   )
 }
 
+// Extra Credit 1
+function ExtraCredit1() {
+  function Box({className = '', style = {}, ...props}) {
+    return (
+      <div
+        {...props}
+        className={`box ${className}`}
+        style={{fontStyle: 'italic', ...style}}
+      />
+    )
+  }
+
+  return (
+    <div>
+      <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+        small lightblue box
+      </Box>
+      <Box className="box--medium" style={{backgroundColor: 'pink'}}>
+        medium pink box
+      </Box>
+      <Box className="box--large" style={{backgroundColor: 'orange'}}>
+        large pink box
+      </Box>
+    </div>
+  )
+}
+
 export default () => (
   <>
     <h1>Styling</h1>
     <Excercise />
+    <h2>Extra Credit 1</h2>
+    <ExtraCredit1 />
   </>
 )
