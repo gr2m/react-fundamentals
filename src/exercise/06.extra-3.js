@@ -1,19 +1,30 @@
-// Basic Forms
-// http://localhost:3000/isolated/exercise/06.js
+// Controlled Forms
+// http://localhost:3000/isolated/exercise/06.extra-3.js
 
 import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
+  const [username, setUsername] = React.useState('')
+
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmitUsername(event.target.querySelector('#username').value)
+    onSubmitUsername(username)
+  }
+
+  function handleChange(event) {
+    setUsername(event.target.value.toLowerCase())
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="username">Username:</label>
-        <input id="username" type="text" />
+        <input
+          onChange={handleChange}
+          value={username}
+          id="username"
+          type="text"
+        />
       </div>
       <button type="submit">Submit</button>
     </form>
