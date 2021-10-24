@@ -67,11 +67,41 @@ function ExtraCredit1() {
   )
 }
 
+// Extra Credit 2
+function ExtraCredit2() {
+  function Box({size, className = '', style = {}, ...props}) {
+    const sizeClassName = size ? `box--${size}` : ''
+    return (
+      <div
+        {...props}
+        className={['box', sizeClassName, className].filter(Boolean).join(' ')}
+        style={{fontStyle: 'italic', ...style}}
+      />
+    )
+  }
+
+  return (
+    <div>
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
+        small lightblue box
+      </Box>
+      <Box size="medium" style={{backgroundColor: 'pink'}}>
+        medium pink box
+      </Box>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
+        large pink box
+      </Box>
+    </div>
+  )
+}
+
 export default () => (
   <>
     <h1>Styling</h1>
     <Excercise />
     <h2>Extra Credit 1</h2>
     <ExtraCredit1 />
+    <h2>Extra Credit 2</h2>
+    <ExtraCredit2 />
   </>
 )
